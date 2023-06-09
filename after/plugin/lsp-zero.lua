@@ -6,13 +6,16 @@ local lsp = require('lsp-zero').preset({
 
 lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({buffer = bufnr})
+  if client.name == "tsserver" then
+      client.server_capabilities.documentFormattingProvider = false
+      client.server_capabilities.documentRangeFormattingProvider = false
+  end
 end)
 
 -- no sign icons
 lsp.set_sign_icons({})
 
 lsp.setup()
-
 
 -- cmp config
 local cmp = require('cmp')
