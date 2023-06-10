@@ -21,5 +21,7 @@ vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 12
 
+vim.opt.updatetime = 50
+
 -- enable format on save (uses LSP)
--- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])

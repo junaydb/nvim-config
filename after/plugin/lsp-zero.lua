@@ -4,6 +4,7 @@ local lsp = require('lsp-zero').preset({
   }
 })
 
+-- disable tsserver formatting
 lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({buffer = bufnr})
   if client.name == "tsserver" then
