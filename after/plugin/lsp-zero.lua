@@ -7,14 +7,38 @@ local lsp = require('lsp-zero').preset({
 -- disable tsserver formatting
 lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({buffer = bufnr})
-  if client.name == "tsserver" then
-      client.server_capabilities.documentFormattingProvider = false
-      client.server_capabilities.documentRangeFormattingProvider = false
-  end
 end)
 
 -- no sign icons
 lsp.set_sign_icons({})
+
+-- disale tsserver formatting
+require('lspconfig').tsserver.setup({
+  on_init = function(client)
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentFormattingRangeProvider = false
+  end,
+})
+
+-- disable lua_ls formatting
+require('lspconfig').lua_ls.setup({
+  on_init = function(client)
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentFormattingRangeProvider = false
+  end,
+})
+
+-- set 'vim' as global for lua
+require'lspconfig'.lua_ls.setup {
+    -- ... other configs
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+}
 
 lsp.setup()
 
