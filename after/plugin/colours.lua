@@ -8,4 +8,4 @@ end
 colour()
 
 -- make sign column transparent (LSP was causing it to be solid for some reason)
-vim.cmd('highlight! SignColumn guibg=NONE ctermbg=NONE')
+vim.cmd("highlight! SignColumn guibg=NONE ctermbg=NONE")

@@ -1,5 +1,5 @@
 return {
-    "airblade/vim-gitgutter",
-    lazy = false,
-    priority = 500,
+	"airblade/vim-gitgutter",
+	lazy = false,
+	priority = 500,
 }
