@@ -24,6 +24,3 @@ vim.opt.scrolloff = 12
 vim.opt.updatetime = 50
 
 vim.opt.timeoutlen = 250
-
--- format on save
-vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
