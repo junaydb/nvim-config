@@ -1,43 +1,58 @@
 local lsp = require("lsp-zero").preset({
-	manage_nvim_cmp = {
-		set_sources = "recommended",
-	},
+    manage_nvim_cmp = {
+        set_sources = "recommended",
+    },
 })
 
--- disable tsserver formatting
 lsp.on_attach(function(client, bufnr)
-	lsp.default_keymaps({ buffer = bufnr })
+    lsp.default_keymaps({ buffer = bufnr })
+
+    -- show diagnostics on hover
+    vim.api.nvim_create_autocmd("CursorHold", {
+        buffer = bufnr,
+        callback = function()
+            local opts = {
+                focusable = false,
+                close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+                border = "rounded",
+                source = "always",
+                prefix = " ",
+                scope = "cursor",
+            }
+            vim.diagnostic.open_float(nil, opts)
+        end,
+    })
 end)
 
 -- no sign icons
 lsp.set_sign_icons({})
 
--- disale tsserver formatting
+-- disable tsserver formatting
 require("lspconfig").tsserver.setup({
-	on_init = function(client)
-		client.server_capabilities.documentFormattingProvider = false
-		client.server_capabilities.documentFormattingRangeProvider = false
-	end,
+    on_init = function(client)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentFormattingRangeProvider = false
+    end,
 })
 
 -- disable lua_ls formatting
 require("lspconfig").lua_ls.setup({
-	on_init = function(client)
-		client.server_capabilities.documentFormattingProvider = false
-		client.server_capabilities.documentFormattingRangeProvider = false
-	end,
+    on_init = function(client)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentFormattingRangeProvider = false
+    end,
 })
 
 -- set 'vim' as global for lua
 require("lspconfig").lua_ls.setup({
-	-- ... other configs
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { "vim" },
-			},
-		},
-	},
+    -- ... other configs
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" },
+            },
+        },
+    },
 })
 
 lsp.setup()
@@ -47,13 +62,13 @@ local cmp = require("cmp")
 local cmp_action = require("lsp-zero").cmp_action()
 
 cmp.setup({
-	window = {
-		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
-	},
-	mapping = {
-		["<Tab>"] = cmp_action.tab_complete(),
-		["<S-Tab>"] = cmp_action.select_prev_or_fallback(),
-		["<CR>"] = cmp.mapping.confirm({ select = false }),
-	},
+    window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+    },
+    mapping = {
+        ["<Tab>"] = cmp_action.luasnip_supertab(),
+        ["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
+        ["<CR>"] = cmp.mapping.confirm({ select = false }),
+    },
 })
