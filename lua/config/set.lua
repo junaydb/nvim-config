@@ -23,7 +23,10 @@ vim.opt.scrolloff = 12
 
 vim.opt.updatetime = 50
 
-vim.opt.timeoutlen = 250
+vim.opt.timeoutlen = 350
 
 -- red error underline
 vim.cmd [[hi DiagnosticUnderlineError guisp=Red gui=undercurl]]
+
+-- for nerdcommenter
+vim.cmd [[filetype plugin on]]
