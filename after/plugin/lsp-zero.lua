@@ -36,6 +36,11 @@ require("lspconfig").tsserver.setup({
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentFormattingRangeProvider = false
 	end,
+	init_options = {
+		preferences = {
+			importModuleSpecifierPreference = "non-relative",
+		},
+	},
 })
 
 -- disable lua_ls formatting
