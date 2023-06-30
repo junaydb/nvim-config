@@ -1,9 +1,8 @@
--- current and relative line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
 
--- hide netrw banner
-vim.g.netrw_banner = 0
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -25,10 +24,6 @@ vim.opt.updatetime = 50
 
 vim.opt.timeoutlen = 350
 
--- red error underline
--- vim.cmd [[hi DiagnosticUnderlineError guisp=Red gui=undercurl]]
-
--- for nerdcommenter
-vim.cmd [[filetype plugin on]]
+vim.cmd [[filetype plugin on]] -- for nerdcommenter
 
 vim.opt.guicursor = ""
