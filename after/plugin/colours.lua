@@ -9,6 +9,3 @@ colour()
 
 -- make sign column transparent (LSP was causing it to be solid for some reason)
 vim.cmd("highlight! SignColumn guibg=NONE ctermbg=NONE")
-
--- make nvim-tree background transparent
-vim.cmd [[hi NvimTreeNormal guibg=NONE ctermbg=NONE]]

@@ -1,9 +1,7 @@
 local opts = { noremap = true }
 vim.g.mapleader = " "
 
--- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, opts) -- open netrw
--- vim.keymap.set("n", "<C-e>", vim.cmd.Ex, opts) -- open netrw
-vim.keymap.set("n", "<C-e>", ":NvimTreeToggle<cr>", opts)  -- open netrw
+vim.keymap.set("n", "<C-e>", vim.cmd.Ex, opts)             -- open netrw
 
 vim.keymap.set("i", "jk", "<Esc>", opts)                   -- return to normal mode from insert mode
 
