@@ -18,9 +18,9 @@ require("lualine").setup({
 			},
 		},
 	},
-	tabline = {
-		lualine_a = { "buffers" },
-	},
+	-- tabline = {
+	--     lualine_a = { "buffers" },
+	-- },
 	options = {
 		-- component_separators = { left = "", right = "" },
 		-- section_separators = { left = "", right = "" },
