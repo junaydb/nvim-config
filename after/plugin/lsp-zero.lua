@@ -40,7 +40,7 @@ require("lspconfig").tsserver.setup({
 	-- for import module alias completion
 	init_options = {
 		preferences = {
-			importModuleSpecifierPreference = "non-relative",
+			importModuleSpecifierPreference = "relative",
 		},
 	},
 })
