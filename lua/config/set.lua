@@ -23,6 +23,11 @@ vim.opt.updatetime = 50
 
 vim.opt.timeoutlen = 350
 
+vim.opt.guicursor = ""
+
 vim.cmd [[filetype plugin on]] -- for nerdcommenter
 
-vim.opt.guicursor = ""
+vim.cmd [[let gitDirRegex='\.git\/']]
+vim.cmd [[let dsStoreRegex='\.DS_Store']]
+vim.cmd [[let g:netrw_list_hide=gitDirRegex]]
+vim.cmd [[let g:netrw_list_hide.=',' . dsStoreRegex]]
