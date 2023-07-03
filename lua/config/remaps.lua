@@ -10,7 +10,9 @@ vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, opts) -- format buffer usin
 vim.keymap.set("n", "<PageDown>", ":bnext<cr>", opts) -- go to next buffer
 vim.keymap.set("n", "<PageUp>", ":bprevious<cr>", opts) -- go to prev buffer
 vim.keymap.set("n", "<C-x>", ":bdelete<cr>", opts) -- close current buffer
-vim.keymap.set("n", "<C-s>", ":split<cr>", opts) -- close current buffer
+vim.keymap.set("n", "<C-s>", ":split<cr>", opts) -- split window
 
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], opts) -- yank to system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>yy", [["+yy]], opts) -- yank line to system clipboard
+
+vim.keymap.set("n", "<leader>w", ":w<cr>", opts) -- write
