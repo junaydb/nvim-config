@@ -25,7 +25,7 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 -- show variable info
-vim.keymap.set("n", "<leader>d", vim.lsp.buf.hover, {})
+vim.keymap.set("i", "<C-d>", vim.lsp.buf.hover, {})
 
 -- no sign icons
 lsp.set_sign_icons({})
@@ -36,13 +36,6 @@ require("lspconfig").tsserver.setup({
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentFormattingRangeProvider = false
 	end,
-
-	-- for import module alias completion
-	init_options = {
-		preferences = {
-			importModuleSpecifierPreference = "relative",
-		},
-	},
 })
 
 require("lspconfig").lua_ls.setup({

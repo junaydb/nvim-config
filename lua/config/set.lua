@@ -29,5 +29,6 @@ vim.cmd [[filetype plugin on]] -- for nerdcommenter
 
 vim.cmd [[let gitDirRegex='\.git\/']]
 vim.cmd [[let dsStoreRegex='\.DS_Store']]
+vim.cmd [[let dotDirsRegex='\.\.\=/\=$']]
 vim.cmd [[let g:netrw_list_hide=gitDirRegex]]
-vim.cmd [[let g:netrw_list_hide.=',' . dsStoreRegex]]
+vim.cmd [[let g:netrw_list_hide.=',' . dsStoreRegex . ',' . dotDirsRegex]]
